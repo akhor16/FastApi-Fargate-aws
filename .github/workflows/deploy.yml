@@ -18,9 +18,9 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Install fargate-service dependencies
+    - name: Install fastapi-service dependencies
       run: |
-        cd fargate-service
+        cd fastapi-service
         python -m venv venv
         source venv/bin/activate
         pip install --upgrade pip
