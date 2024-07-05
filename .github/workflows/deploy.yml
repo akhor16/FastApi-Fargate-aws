@@ -40,6 +40,7 @@ jobs:
 
     - name: Build Docker image
       run: |
+        cd fastapi-service
         docker build -t fastapi-service .
 
     - name: Log in to Amazon ECR
