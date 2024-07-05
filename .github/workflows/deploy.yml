@@ -18,11 +18,25 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Install dependencies
+    - name: Install fargate-service dependencies
       run: |
+        cd fargate-service
         python -m venv venv
         source venv/bin/activate
+        pip install --upgrade pip
         pip install -r requirements.txt
+        deactivate
+        cd ..
+
+    - name: Install cdk-fastapi dependencies
+      run: |
+        cd cdk-fastapi
+        python -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        deactivate
+        cd ..
 
     - name: Build Docker image
       run: |
