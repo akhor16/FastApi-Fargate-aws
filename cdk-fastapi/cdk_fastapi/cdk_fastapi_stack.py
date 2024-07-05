@@ -14,9 +14,9 @@ class CdkFastapiStack(core.Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        vpc = ec2.Vpc(self, "MyVpc", max_azs=2)
+        vpc = ec2.Vpc(self, "vpc-0262bede1e4144f66", max_azs=2)
 
-        cluster = ecs.Cluster(self, "FargateCluster", vpc=vpc)
+        cluster = ecs.Cluster(self, "fastapi-cluster", vpc=vpc)
 
         table = dynamodb.Table(
             self, "MessagesTable",
@@ -28,7 +28,7 @@ class CdkFastapiStack(core.Stack):
         )
 
         task_role = iam.Role.from_role_arn(
-            self, "TaskRole", "arn:aws:iam::305572817819:role/cdk_user"
+            self, "TaskRole", "arn:aws:iam::305572817819:user/another_cdk_user"
         )
 
         fargate_service = ecs_patterns.ApplicationLoadBalancedFargateService(self, "FargateService",

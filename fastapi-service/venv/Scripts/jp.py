@@ -1,4 +1,4 @@
-#!C:\Users\HP user\fastapi-service\venv\Scripts\python.exe
+#!C:\Users\HP user\fastapi-project\fastapi-service\venv\Scripts\python.exe
 
 import sys
 import json
